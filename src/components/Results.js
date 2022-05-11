@@ -3,8 +3,14 @@ import Button from "./Button";
 
 function Results({ winner }) {
 
-    let [xScore, setxScore] = useState(0);
-    let [oScore, setoScore] = useState(0);
+    let [xScore, setxScore] = useState(()=>{
+        let xscore = parseInt(localStorage.getItem('xscore'));
+        return xscore || 0;
+    });
+    let [oScore, setoScore] = useState(()=>{
+        let oscore = parseInt(localStorage.getItem('oscore'));
+        return oscore || 0;
+    });
 
     useEffect(() => {
         if (winner === 'X') {
@@ -14,6 +20,11 @@ function Results({ winner }) {
         }
     }, [winner]);
 
+    useEffect(() => {
+        localStorage.setItem('xscore', xScore);
+        localStorage.setItem('oscore', oScore);
+    },[xScore,oScore])
+
     function resetScore(){
         setxScore(0);
         setoScore(0);
@@ -22,7 +33,8 @@ function Results({ winner }) {
     return <div className="results">
         <p>Results</p>
         <p>Player X <span>{xScore}</span>:<span>{oScore}</span> Player O</p>
-        <button onClick={resetScore}>Reset Score </button>
+        {/* <button onClick={resetScore}>Reset Score </button> */}
+        <Button onClick={resetScore} value="Reset Score"/>
     </div>
 }
 

@@ -11,6 +11,7 @@ function Game() {
     const [xIsNext, setxIsNext] = useState(true);
 
     function handleClick(i) {
+        console.log(i);
         const sq = squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;

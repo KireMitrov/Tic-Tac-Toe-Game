@@ -1,7 +1,7 @@
 import React from "react";
 
-function Button({ onClick,resetScore }) {
-      return <button onClick={onClick}>Reset Board</button>
+function Button({onClick, value}) {
+      return <button onClick={onClick}>{value}</button>
 }
 
 export default Button

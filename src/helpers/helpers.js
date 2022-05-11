@@ -17,3 +17,7 @@ export function calculateWinner(squares) {
   }
   return null;
 }
+
+// export function makeSquaresRed(squares){
+
+// }

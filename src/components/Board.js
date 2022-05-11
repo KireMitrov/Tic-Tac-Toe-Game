@@ -19,7 +19,7 @@ function Board({ renderSquare, resetBoard }) {
             {renderSquare(7)}
             {renderSquare(8)}
         </div>
-        <Button onClick={resetBoard} />
+        <Button onClick={resetBoard} value="Reset Board" />
     </div>
 }
 
